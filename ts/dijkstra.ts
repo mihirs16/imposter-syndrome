@@ -41,8 +41,9 @@ function dijkstra(grid: number[][], source: Coordinates) {
     distances[0][0] = 0;
     minHeap.push([[0, 0], 0]);
     while (minHeap.size() > 0) {
-        var currPos = minHeap.pop()![0];
+        var [currPos, minValue] = minHeap.pop()!;
         visited[currPos[0]][currPos[1]] = true;
+        if (getDistance(currPos) < minValue) continue;
         for (const neighbour of getNeighbours(currPos)) {
             if (isVisited(neighbour)) continue;
             const newDist = getDistance(currPos) + gridVal(neighbour);
