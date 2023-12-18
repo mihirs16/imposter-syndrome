@@ -5,4 +5,11 @@ const matrix = [
 ];
 
 const matrixColumn = (matrix: number[][], colIdx: number) => matrix.map(x => x[colIdx]);
-console.log(matrixColumn(matrix, 0))
+
+// print all edges
+console.log([
+    matrix.map(x => x[0]),
+    matrix[0],
+    matrix.map(x => x[matrix[0].length - 1]),
+    matrix[matrix.length - 1]
+]);
